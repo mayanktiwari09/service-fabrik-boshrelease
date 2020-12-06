@@ -5,30 +5,72 @@ data:
     name: svc-0-mock-configmap
     tunables:
       number:
-        - name: "MAX_THREADS"
+        - name: "X_VALUE"
           lower:
-            value: 4
+            value: -10
           upper:
-            dependsOn: "CONMGR1_MAX_POOL_SIZE"
-            value: 60
-          step: 10
-          real: False
-        # JDBC Conn Pool
-        - name: "CONMGR1_MAX_POOL_SIZE"
+            value: 10
+        - name: "Y_VALUE"
           lower:
-            value: 4
+            value: -10
           upper:
-            value: 100
-          step: 10
-          real: False
+            value: 10
+        - name: "A_VALUE"
+          lower:
+            value: -4
+          upper:
+            value: 4
+          real: true            
+        - name: "B_VALUE"
+          real: true
+          lower:
+            value: -250
+          upper:
+            value: 250   
+        - name: "C_VALUE"
+          lower:
+            value: -10
+          upper:
+            value: 10
+          real: true     
+        - name: "D_VALUE"
+          lower:
+            value: 1.0e-15
+          upper:
+            value: 1000000000000000.0
+          step: 10    
+        - name: "E_VALUE"
+          lower:
+            value: -2.5
+          upper:
+            value: 2.5
+          real: true    
+        - name: "F_VALUE"
+          lower:
+            value: 5
+          upper:
+            value: 10
+          real: true    
+        - name: "G_VALUE"
+          lower:
+            value: -3
+          upper:
+            value: 3
+          real: true    
+        - name: "H_VALUE"
+          lower:
+            value: -25
+          upper:
+            value: 25
+          real: true    
 metadata: 
   name: svc-0-mock-searchspace
   namespace: uapp
 spec: 
-  deployment: svc-0-mock-22222
+  deployment: svc-0-mock
   manifests: 
     - 
       name: svc-0-mock-configmap
       type: configMap
   namespace: uapp
-  service: svc-0-mock22222222
+  service: svc-0-mock

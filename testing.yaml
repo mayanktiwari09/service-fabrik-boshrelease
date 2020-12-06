@@ -16,10 +16,10 @@ metadata:
   name: svc-0-mock-searchspace
   namespace: uapp
 spec: 
-  deployment: svc-0-mock
+  deployment: svc-0-mock22222
   manifests: 
     - 
       name: svc-0-mock-configmap
       type: configMap
   namespace: uapp
-  service: svc-0-mock
+  service: svc-0-mock22222

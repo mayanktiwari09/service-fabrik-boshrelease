@@ -1,0 +1,34 @@
+apiVersion: smarttuning.ibm.com/v1alpha2
+kind: SearchSpace
+data: 
+  - 
+    name: svc-0-mock-configmap
+    tunables:
+      number:
+        - name: "MAX_THREADS"
+          lower:
+            value: 4
+          upper:
+            dependsOn: "CONMGR1_MAX_POOL_SIZE"
+            value: 60
+          step: 10
+          real: False
+        # JDBC Conn Pool
+        - name: "CONMGR1_MAX_POOL_SIZE"
+          lower:
+            value: 4
+          upper:
+            value: 100
+          step: 10
+          real: False
+metadata: 
+  name: svc-0-mock-searchspace
+  namespace: uapp
+spec: 
+  deployment: svc-0-mock
+  manifests: 
+    - 
+      name: svc-0-mock-configmap
+      type: configMap
+  namespace: uapp
+  service: svc-0-mock
